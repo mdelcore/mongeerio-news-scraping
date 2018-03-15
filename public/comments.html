@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Onion Scrape Comments Page
+        </title>
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+        </script>
+        <!-- Materialize -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css" rel="stylesheet"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js">
+        </script>
+    </head>
+    <body>
+        <div class="main">
+            <div class="container">
+                <div class="row article-row">
+                    <div class="col s12 m6 l8 offset-m3-l2">
+                        <div class="row title-row">
+                            <a class="link-elem">
+                                <h5 class="title-elem">
+                                    
+                                </h5>
+                            </a>
+                        </div>
+                        <div class="row desc-row">
+                            <p class="desc-element">
+                                
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row new-comment">
+                </div>
+                <div class="row loaded-comments">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+<script>
+	
+	$.getJSON('/article/:id', function(data) {
+		console.log(data);
+	});
+</script>
