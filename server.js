@@ -44,7 +44,7 @@ app.get('/', function(req, res) {
 			var result = {};
 			result.title = $(this).find('h2.headline').find('a').attr('title');
 			result.desc = $(this).find('div.desc').text().trim();
-			result.link = 'http://www.theonion.com' + $(this).find('figure.thumb').find('a')attr('href');
+			result.link = 'http://www.theonion.com' + $(this).find('figure.thumb').find('a').attr('href');
 			result.thumb = $(this).find('div.image').find('img').attr('src');
 			var entry = new Article(result);
 			entry.save(function(err, doc) {
@@ -72,7 +72,7 @@ app.get('/article/:id', function(req, res){
 });
 
 // Create a new note
-app,post('/article/:id', function(req, res) {
+app.post('/article/:id', function(req, res) {
 	console.log(req.params.id);
 
 	var newComment = new Comment(req.body);
