@@ -15,15 +15,21 @@ var ArticleSchema = new Schema({
 		type: String,
 		required: true
 	},
-	thumb: {
-		type: String
-	},
-	comment: {
-		type: Schema.Type.ObjectId,
-		ref: 'Comment'
-	}
+	tsummary: {
+    type: String,
+  },
+   byline: {
+   type: String,
+  },
+  // This only saves one note's ObjectId, ref refers to the Note model
+  note: [{
+    type: Schema.Types.ObjectId,
+    ref: "Note"
+  }]
 });
 
-var Article = mongoose.model('Article', ArticleSchema);
+// Create the Article model with the ArticleSchema
+var Article = mongoose.model("Article", ArticleSchema);
 
-module.exports = Article; 
+// Export the model
+module.exports = Article;
