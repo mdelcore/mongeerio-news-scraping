@@ -8,34 +8,42 @@ function displaySaved() {
             var mainDiv = $("<div>");
             mainDiv.addClass("card grey lighten-2");
             mainDiv.attr("id", "main-" + data[i]._id);
+            
             var cardContentDiv = $("<div>");
             cardContentDiv.addClass("card-content black-text");
+            
             var spanTitle = $("<span>");
             spanTitle.addClass("card-title");
             spanTitle.attr("data-id", data[i]._id);
             spanTitle.attr("id", "title-" + data[i]._id);
             spanTitle.text(data[i].title);
+            
             var p = $("<p>");
             p.text(data[i].summary);
             p.attr("id", "summary-" + data[i]._id);
             cardContentDiv.append(spanTitle);
             cardContentDiv.append(p);
+            
             var cardActionDiv = $("<div>");
             cardActionDiv.addClass("card-action");
+            
             var a = $("<a>");
             a.attr("href", data[i].link);
             a.attr("id", "link-" + data[i]._id);
             a.text("Go to the article");
             cardActionDiv.append(a);
+            
             var button = $("<a>");
             button.addClass("waves-effect waves-light white btn create-note modal-trigger");
             button.attr("data-id", data[i]._id);
             button.attr("data-target", "notes");
             button.text("Create Notes");
+            
             var deleteArticle = $("<a>");
             deleteArticle.addClass("waves-effect waves-light white btn delete-button");
             deleteArticle.attr("id", data[i]._id);
             deleteArticle.text("Delete");
+            
             var byline = $("<p>");
             byline.text(data[i].byline);
             cardActionDiv.append(byline);
@@ -126,10 +134,13 @@ $(document).ready(function () {
         $.getJSON("/notes/" + aid, function (data) {
             if(data.length) {
                 console.log(data);
+                
                 let notetext = "Notes: " + data[0].body;
                 $("#display-note").empty();
+                
                 let noteList = $("<ul>");
                 noteList.addClass("collection with-header");
+                
                 let hli = $("<li>");
                 hli.addClass("collection-header")
                 hli.text("Notes");
@@ -148,6 +159,7 @@ $(document).ready(function () {
                     adelete.attr("note-id", data[i]._id);
                     adelete.attr("href", "#");
                     adelete.attr("onclick", 'deletenote("' + data[i]._id + '")');
+                    
                     let xdelete = $("<i>");
                     xdelete.addClass("material-icons");
                     xdelete.attr("note-id", data[i]._id);

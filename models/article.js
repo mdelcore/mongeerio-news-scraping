@@ -1,21 +1,21 @@
-var mongoose = require('mongoose');
+// Require mongoose
+var mongoose = require("mongoose");
+// Create Schema class
 var Schema = mongoose.Schema;
 
+// Create article schema
 var ArticleSchema = new Schema({
-	title: {
-		type: String,
-		unique: true,
-		required: true
-	},
-	desc: {
-		type: String,
-		required: true
-	},
-	link: {
-		type: String,
-		required: true
-	},
-	tsummary: {
+  // title is a required string
+  title: {
+    type: String,
+    required: true
+  },
+  // link is a required string
+  link: {
+    type: String,
+    required: true
+  },
+  summary: {
     type: String,
   },
    byline: {
