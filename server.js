@@ -27,7 +27,18 @@ if(process.env.MONGODB_URI) {
 } else {
     mongoose.connect(dbConnect);
 }
-
+mongodb://mongeerio:0okm9ijn@ds115219.mlab.com:15219/heroku_zm9m8h1g
+// Connect mongoose to our database
+ mongoose.connect(dbConnect, function (error) {
+    // Log any errors connecting with mongoose
+    if (error) {
+        console.log(error);
+    }
+    // Or log a success message
+    else {
+        console.log("Mongoose connection is successful");
+    }
+}); 
 var db = mongoose.connection;
 db.on('error',function(err){
     console.log('Mongoose Error',err);
